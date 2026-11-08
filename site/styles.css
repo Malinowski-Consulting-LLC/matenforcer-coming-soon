@@ -1,0 +1,553 @@
+/*
+  MatEnforcer coming-soon site. Values are copied by hand from the app's tokens.css (see README.md
+  for the source commit); this site has no build step. Dark follows prefers-color-scheme only.
+  The red in the logo is artwork and never appears in this stylesheet.
+*/
+
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url(fonts/archivo-latin-wdth-normal.woff2) format("woff2");
+}
+
+:root {
+  color-scheme: light dark;
+
+  --canvas: #eef0ec;
+  --surface: #ffffff;
+  --surface-sunken: #e3e6e0;
+  --border: #d5d9d2;
+  --border-strong: #5e625c;
+  --text: #141414;
+  --text-muted: #5e625c;
+  --accent: #141414;
+  --accent-on: #ffffff;
+  --focus-inner: #ffffff;
+  --focus-outer: #141414;
+  --band: #141414;
+  --band-text: #eef0ec;
+  --band-edge: #141414;
+
+  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --width-display: 87.5;
+
+  --size-sm: 0.9375rem;
+  --size-md: 1.0625rem;
+  --size-lg: 1.25rem;
+  --size-xl: 1.5rem;
+  --size-2xl: 1.875rem;
+  --size-3xl: 2.5rem;
+  --size-display: 3.25rem;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-section: 96px;
+
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --ring: 2px;
+  --touch: 44px;
+  --input-height: 48px;
+  --button-md: 48px;
+  --button-lg: 56px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --canvas: #0e0f0e;
+    --surface: #1a1b19;
+    --surface-sunken: #090a09;
+    --border: #2a2c29;
+    --border-strong: #868b82;
+    --text: #eef0ec;
+    --text-muted: #a4a9a0;
+    --accent: #eceee9;
+    --accent-on: #141414;
+    --focus-inner: #0e0f0e;
+    --focus-outer: #eef0ec;
+    --band: #1a1b19;
+    --band-edge: #2a2c29;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--canvas);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--size-md);
+  line-height: 1.5;
+  caret-color: var(--text);
+  accent-color: var(--accent);
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--text);
+  color: var(--canvas);
+}
+
+a {
+  color: var(--text);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--text-muted);
+}
+
+:focus-visible {
+  outline: var(--ring) solid var(--focus-outer);
+  outline-offset: var(--ring);
+  box-shadow: 0 0 0 var(--ring) var(--focus-inner);
+}
+
+/* Page frame */
+
+.cs-page {
+  flex: 1;
+  width: 100%;
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-5) 0;
+}
+
+/* Header: the mark and the name as one unit. Clear space beside the name is a third of the mark. */
+
+.cs-head {
+  display: flex;
+  align-items: flex-end;
+  gap: 37px;
+}
+
+.cs-head__name,
+.cs-h1,
+.cs-h2,
+.cs-h3,
+.cs-foot__name {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" var(--width-display);
+}
+
+.cs-head__name {
+  margin-bottom: 6px;
+  font-size: var(--size-xl);
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.cs-mark {
+  width: auto;
+  height: 112px;
+}
+
+.cs-head__home {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 21px;
+  min-height: var(--touch);
+  text-decoration: none;
+}
+
+.cs-head__home:hover {
+  color: var(--text);
+}
+
+.cs-head__home .cs-mark {
+  height: 64px;
+}
+
+.cs-head__home .cs-head__name {
+  margin-bottom: 0;
+}
+
+/* Main column */
+
+.cs-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding-top: var(--space-8);
+}
+
+.cs-main--column {
+  gap: var(--space-4);
+  max-width: 600px;
+}
+
+.cs-notice {
+  max-width: 640px;
+}
+
+.cs-hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cs-h1 {
+  font-size: var(--size-3xl);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.cs-main--column .cs-h1 {
+  margin-bottom: var(--space-2);
+}
+
+.cs-lede {
+  max-width: 60ch;
+}
+
+.cs-h2 {
+  font-size: var(--size-xl);
+  font-weight: 800;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.cs-h3 {
+  font-size: var(--size-lg);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.cs-muted,
+.cs-consent {
+  color: var(--text-muted);
+}
+
+/* Join the list */
+
+.cs-join {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.cs-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.cs-label {
+  font-weight: 600;
+}
+
+.cs-form__row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.cs-input {
+  width: 100%;
+  min-width: 0;
+  height: var(--input-height);
+  margin: 0;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface-sunken);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--size-md);
+}
+
+.cs-button {
+  min-height: var(--button-lg);
+  margin: 0;
+  padding: 0 var(--space-6);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: var(--accent-on);
+  font: inherit;
+  font-size: var(--size-md);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cs-button:hover {
+  background: color-mix(in oklab, var(--accent) 82%, var(--canvas));
+}
+
+.cs-consent {
+  font-size: var(--size-sm);
+}
+
+.cs-consent a {
+  color: var(--text-muted);
+}
+
+.cs-consent a:hover {
+  color: var(--text);
+}
+
+/* At launch: ruled rows, no cards and no tape; nothing here is usable before launch. */
+
+.cs-launch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.cs-launch__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.cs-launch__groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.cs-launch__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.cs-launch__item {
+  padding: var(--space-3) 0;
+  border-top: 1px solid var(--border);
+}
+
+/* Privacy notice */
+
+.cs-notice__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-top: var(--space-4);
+}
+
+.cs-notice__updated {
+  margin-top: var(--space-4);
+}
+
+/* Footer: the page's one full-bleed element, a rank-bar black band. */
+
+.cs-foot {
+  margin-top: var(--space-16);
+  padding: var(--space-12) var(--space-5);
+  border-top: 1px solid var(--band-edge);
+  background: var(--band);
+  color: var(--band-text);
+  --focus-inner: var(--band);
+  --focus-outer: var(--band-text);
+}
+
+.cs-foot ::selection {
+  background: var(--band-text);
+  color: var(--band);
+}
+
+.cs-foot a {
+  display: inline-block;
+  padding: 10px 0;
+  color: inherit;
+}
+
+.cs-foot a:hover {
+  color: inherit;
+  text-decoration-thickness: 2px;
+}
+
+.cs-foot__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-6);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cs-foot__name {
+  font-weight: 800;
+}
+
+.cs-foot__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-6);
+}
+
+/* Narrowest phones: keep the longest headline word inside a 320 px screen. */
+
+@media (max-width: 359px) {
+  .cs-h1 {
+    font-size: 2.125rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .cs-page {
+    max-width: 640px;
+    margin: 0;
+  }
+
+  .cs-head--home {
+    gap: 53px;
+  }
+
+  .cs-head--home .cs-head__name {
+    margin-bottom: 14px;
+  }
+
+  .cs-head--home .cs-mark {
+    height: 160px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cs-page {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--space-6);
+    max-width: 1248px;
+    margin: 0 auto;
+    padding: var(--space-section) var(--space-6) 0;
+  }
+
+  .cs--home .cs-head {
+    grid-column: 1 / 6;
+    grid-row: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-6);
+  }
+
+  .cs--home .cs-head__name {
+    margin: 0;
+    font-size: var(--size-2xl);
+  }
+
+  .cs-head--home .cs-mark {
+    height: 320px;
+  }
+
+  .cs--home .cs-main {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-row: 1 / span 3;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+    padding-top: 0;
+  }
+
+  .cs-hero {
+    grid-column: 6 / -1;
+    grid-row: 1;
+    max-width: calc(600px + 40px);
+    padding-left: 40px;
+  }
+
+  .cs-h1 {
+    font-size: var(--size-display);
+  }
+
+  .cs-form__row {
+    flex-direction: row;
+  }
+
+  .cs-form__row .cs-input {
+    flex: 1;
+  }
+
+  .cs-form__row .cs-button {
+    flex: none;
+    min-height: var(--button-md);
+  }
+
+  .cs-launch {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: var(--space-section);
+  }
+
+  .cs-launch__groups {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: var(--space-12);
+  }
+
+  .cs-alt {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-top: var(--space-12);
+  }
+
+  .cs--inner .cs-head,
+  .cs--inner .cs-main {
+    grid-column: 6 / -1;
+  }
+
+  .cs-foot {
+    margin-top: var(--space-section);
+  }
+}
+
+@media (forced-colors: active) {
+  :focus-visible {
+    outline-color: Highlight;
+  }
+
+  .cs-button {
+    border-color: ButtonText;
+  }
+}
