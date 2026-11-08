@@ -1,0 +1,16 @@
+@import "https://example.invalid/x.css";
+/* A comment may mention https://example.invalid/ without loading it. */
+@font-face {
+  font-family: "Archivo";
+  src: url("fonts/archivo.woff2") format("woff2");
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) body {
+    background: #0e0f0e;
+  }
+}
+
+body {
+  font-variation-settings: "wdth" 87.5;
+}
