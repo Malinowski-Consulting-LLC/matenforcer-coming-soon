@@ -34,14 +34,15 @@ scripts/
   check-no-third-party.sh   the publish check
   test-checker.sh           proves the check catches every known bypass
   fixtures/                 one passing page and one failing page per bypass; never published
+.github/workflows/pages.yml   checks the fixtures, then site/, uploads only site/, deploys, probes for 404
 CNAME                 matenforcer.net, documentation only (see Domain)
 ```
 
 ## Sources
 
 - **Logo assets:** copied byte for byte from MatEnforcer `public/brand` and `public/favicon.ico`.
-  Source commit: pending. The asset build has not merged yet, so `site/assets/` holds only its README
-  until then. Record the merge commit here when the files are copied.
+  Source commit: `6fcf05b16` (`BRAND_ASSET_VERSION` `bc2aec4d3a`). The fifteen files in `site/assets/`
+  are the twelve `logo-<W>x<H>.png` marks, `apple-touch-icon.png`, `og-image.png` and `favicon.ico`.
 - **Colours, type and spacing:** copied by hand from MatEnforcer `app/frontend/styles/tokens.css` at
   commit `9a7d52476`. No brand-red token is copied; the red lives only inside the logo artwork.
 - **Font:** `archivo-latin-wdth-normal.woff2` from `@fontsource-variable/archivo` 5.3.0

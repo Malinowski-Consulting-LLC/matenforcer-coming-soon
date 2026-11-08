@@ -1,7 +1,7 @@
 # site/assets
 
-Populated from MatEnforcer `public/brand` after the asset build. The files are copied byte for byte
-at one pinned source commit, which the repo README records. Never add a `.webp` here; the publish
+Copied byte for byte from MatEnforcer `public/brand` and `public/favicon.ico` at source commit
+`6fcf05b16` (`BRAND_ASSET_VERSION` `bc2aec4d3a`), which the repo README also records. Never add a `.webp` here; the publish
 check refuses one anywhere in this repo.
 
 The pages reference these final names:
@@ -16,6 +16,5 @@ The pages reference these final names:
 | `logo-235x320.png`, `logo-470x640.png`, `logo-705x960.png` | `index.html`, 1024 px and up | 235 x 320 at 1x, 2x, 3x |
 | `logo-47x64.png`, `logo-94x128.png`, `logo-141x192.png` | `thanks.html`, `privacy.html` | 47 x 64 at 1x, 2x, 3x |
 
-The app's asset build currently writes `logo-18x24.png`, `logo-36x48.png` and `logo-54x72.png`,
-which these pages do not use. The twelve `logo-<W>x<H>.png` sizes above have to be added to that
-build, so that it produces them the same way: scaled from the master, with metadata removed.
+The app's asset build produces these twelve sizes the same way as its own: scaled from the master,
+with metadata removed.
