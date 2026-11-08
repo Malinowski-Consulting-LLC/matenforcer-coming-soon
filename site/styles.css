@@ -1,7 +1,11 @@
 /*
-  MatEnforcer coming-soon site. Values are copied by hand from the app's tokens.css (see README.md
-  for the source commit); this site has no build step. Dark follows prefers-color-scheme only.
-  The red in the logo is artwork and never appears in this stylesheet.
+  MatEnforcer coming-soon site, drawn in the same Rank Bar world as the apex home page (L01): a big
+  semi-condensed black headline, a full-bleed band for the launch list, a sunken closing band and the
+  wordmark footer. Values are copied by hand from the app tokens.css (see README.md for the source
+  commit); this site has no build step and no script. Dark follows prefers-color-scheme only.
+  The red in the logo is artwork and never appears in this stylesheet. Amber is used only for text
+  selection, as in the app.
+  Every launch item is an open slot, as on the apex band, because none of it is live yet.
 */
 
 @font-face {
@@ -25,23 +29,28 @@
   --text-muted: #5e625c;
   --accent: #141414;
   --accent-on: #ffffff;
+  --error: #b42318;
   --focus-inner: #ffffff;
   --focus-outer: #141414;
-  --band: #141414;
-  --band-text: #eef0ec;
-  --band-edge: #141414;
+  --selection: #f5b40066;
+  --shadow-2: 0 2px 6px 0 #1414141f;
+
+  --band-bg: var(--surface);
+  --band-edge: var(--border);
+  --band-ink: var(--text);
+  --band-muted: var(--text-muted);
+  --band-slot: var(--border-strong);
 
   --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
   --font-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
   --width-display: 87.5;
+  --width-headline: 75;
 
+  --size-xs: 0.8125rem;
   --size-sm: 0.9375rem;
   --size-md: 1.0625rem;
   --size-lg: 1.25rem;
   --size-xl: 1.5rem;
-  --size-2xl: 1.875rem;
-  --size-3xl: 2.5rem;
-  --size-display: 3.25rem;
 
   --space-1: 4px;
   --space-2: 8px;
@@ -50,17 +59,20 @@
   --space-5: 20px;
   --space-6: 24px;
   --space-8: 32px;
+  --space-10: 40px;
   --space-12: 48px;
   --space-16: 64px;
-  --space-section: 96px;
 
+  --max: 75rem;
+  --gutter: var(--space-4);
   --radius-md: 4px;
-  --radius-lg: 6px;
   --ring: 2px;
   --touch: 44px;
-  --input-height: 48px;
-  --button-md: 48px;
-  --button-lg: 56px;
+  --control: 48px;
+  --tape: 6px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --fast: 120ms;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -74,10 +86,17 @@
     --text-muted: #a4a9a0;
     --accent: #eceee9;
     --accent-on: #141414;
+    --error: #ff8a80;
     --focus-inner: #0e0f0e;
     --focus-outer: #eef0ec;
-    --band: #1a1b19;
-    --band-edge: #2a2c29;
+    --selection: #f5b40055;
+    --shadow-2: 0 2px 6px 0 #00000080;
+
+    --band-bg: #000000;
+    --band-edge: #343632;
+    --band-ink: #eef0ec;
+    --band-muted: #a4a9a0;
+    --band-slot: #5e625c;
   }
 }
 
@@ -90,12 +109,14 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  scrollbar-color: var(--border-strong) var(--canvas);
 }
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
   background: var(--canvas);
   color: var(--text);
@@ -122,21 +143,22 @@ ul {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 ::selection {
-  background: var(--text);
-  color: var(--canvas);
+  background: var(--selection);
+  color: var(--text);
 }
 
 a {
   color: var(--text);
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
+  text-underline-offset: 0.2em;
 }
 
 a:hover {
-  color: var(--text-muted);
+  text-decoration-thickness: 2px;
 }
 
 :focus-visible {
@@ -145,121 +167,84 @@ a:hover {
   box-shadow: 0 0 0 var(--ring) var(--focus-inner);
 }
 
-/* Page frame */
-
-.cs-page {
-  flex: 1;
-  width: 100%;
-  max-width: 1248px;
-  margin: 0 auto;
-  padding: var(--space-8) var(--space-5) 0;
+.cs-nowrap {
+  white-space: nowrap;
 }
 
-/* Header: the mark and the name as one unit. Clear space beside the name is a third of the mark. */
+/* Header: the mark and the name, as on the apex pages. */
 
 .cs-head {
-  display: flex;
-  align-items: flex-end;
-  gap: 37px;
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: var(--space-3) var(--gutter);
 }
 
-.cs-head__name,
-.cs-h1,
-.cs-h2,
-.cs-h3,
-.cs-foot__name {
+.cs-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--touch);
+  color: var(--text);
   font-family: var(--font-display);
   font-variation-settings: "wdth" var(--width-display);
-}
-
-.cs-head__name {
-  margin-bottom: 6px;
-  font-size: var(--size-xl);
+  font-size: var(--size-lg);
   font-weight: 800;
-  line-height: 1.05;
-}
-
-.cs-mark {
-  width: auto;
-  height: 112px;
-}
-
-.cs-head__home {
-  display: inline-flex;
-  align-items: flex-end;
-  gap: 21px;
-  min-height: var(--touch);
   text-decoration: none;
 }
 
-.cs-head__home:hover {
-  color: var(--text);
-}
-
-.cs-head__home .cs-mark {
-  height: 64px;
-}
-
-.cs-head__home .cs-head__name {
-  margin-bottom: 0;
+.cs-brand__mark {
+  width: auto;
+  height: 32px;
 }
 
 /* Main column */
 
 .cs-main {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-12);
-  padding-top: var(--space-8);
+  flex: 1;
 }
 
-.cs-main--column {
-  gap: var(--space-4);
-  max-width: 600px;
-}
-
-.cs-notice {
-  max-width: 640px;
-}
+/* Hero: the headline, the lede and the form; the big mark joins at 1024 px. */
 
 .cs-hero {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-10);
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: var(--space-8) var(--gutter) var(--space-12);
 }
 
-.cs-h1 {
-  font-size: var(--size-3xl);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.015em;
+.cs-hero__copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.cs-display,
+.cs-h2,
+.cs-doc__title {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" var(--width-headline);
+  font-weight: 900;
   text-wrap: balance;
 }
 
-.cs-main--column .cs-h1 {
-  margin-bottom: var(--space-2);
+.cs-display {
+  font-size: clamp(2.5rem, 5.4vw, 5rem);
+  line-height: 0.94;
+  letter-spacing: -0.02em;
 }
 
 .cs-lede {
-  max-width: 60ch;
-}
-
-.cs-h2 {
-  font-size: var(--size-xl);
-  font-weight: 800;
-  line-height: 1.05;
-  text-wrap: balance;
-}
-
-.cs-h3 {
+  max-width: 44ch;
   font-size: var(--size-lg);
-  font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.45;
 }
 
-.cs-muted,
-.cs-consent {
-  color: var(--text-muted);
+.cs-hero__mark {
+  display: none;
 }
 
 /* Join the list */
@@ -267,11 +252,17 @@ a:hover {
 .cs-join {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-  margin-top: var(--space-4);
-  padding: var(--space-5);
-  border-radius: var(--radius-lg);
-  background: var(--surface);
+  gap: var(--space-3);
+  max-width: 36rem;
+  margin-top: var(--space-3);
+}
+
+.cs-join__title {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" var(--width-display);
+  font-size: var(--size-xl);
+  font-weight: 800;
+  line-height: 1.25;
 }
 
 .cs-form {
@@ -282,6 +273,7 @@ a:hover {
 
 .cs-label {
   font-weight: 600;
+  line-height: 1.25;
 }
 
 .cs-form__row {
@@ -293,7 +285,7 @@ a:hover {
 .cs-input {
   width: 100%;
   min-width: 0;
-  height: var(--input-height);
+  height: var(--control);
   margin: 0;
   padding: 0 var(--space-3);
   border: 1px solid var(--border-strong);
@@ -304,8 +296,16 @@ a:hover {
   font-size: var(--size-md);
 }
 
+.cs-input:user-invalid {
+  border-width: var(--ring);
+  border-color: var(--error);
+}
+
 .cs-button {
-  min-height: var(--button-lg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--control);
   margin: 0;
   padding: 0 var(--space-6);
   border: 1px solid transparent;
@@ -315,193 +315,305 @@ a:hover {
   font: inherit;
   font-size: var(--size-md);
   font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
   cursor: pointer;
+  transition: background-color var(--fast) var(--ease-out);
 }
 
 .cs-button:hover {
-  background: color-mix(in oklab, var(--accent) 82%, var(--canvas));
+  background: color-mix(in oklab, var(--accent) 84%, var(--canvas));
+}
+
+.cs-button:active {
+  background: color-mix(in oklab, var(--accent) 72%, var(--canvas));
 }
 
 .cs-consent {
+  color: var(--text-muted);
   font-size: var(--size-sm);
 }
 
 .cs-consent a {
-  color: var(--text-muted);
+  white-space: nowrap;
 }
 
-.cs-consent a:hover {
-  color: var(--text);
+/* At launch: the apex band. Every item is an open slot, on the way and not available yet. */
+
+.cs-band {
+  border-block: 1px solid var(--band-edge);
+  background: var(--band-bg);
+  color: var(--band-ink);
 }
 
-/* At launch: ruled rows, no cards and no tape; nothing here is usable before launch. */
+.cs-band__inner {
+  display: grid;
+  gap: var(--space-10);
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: var(--space-12) var(--gutter);
+}
 
-.cs-launch {
+.cs-band__head {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-3);
+  max-width: 40rem;
 }
 
-.cs-launch__head {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
+.cs-band__head p {
+  color: var(--band-muted);
 }
 
-.cs-launch__groups {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
+.cs-h2 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1;
+  letter-spacing: -0.015em;
 }
 
 .cs-launch__group {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-4);
+}
+
+.cs-launch__title {
+  font-size: var(--size-md);
+  font-weight: 700;
+}
+
+.cs-launch__list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
 }
 
 .cs-launch__item {
-  padding: var(--space-3) 0;
+  position: relative;
+  min-height: 3.5rem;
+  padding-left: calc(var(--tape) + var(--space-4));
+  color: var(--band-muted);
+}
+
+.cs-launch__item p {
+  overflow-wrap: anywhere;
+}
+
+.cs-launch__item strong {
+  display: block;
+  margin-bottom: var(--space-1);
+  color: var(--band-ink);
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" var(--width-display);
+  font-size: var(--size-lg);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.cs-slot {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--tape);
+  outline: 1px dashed var(--band-slot);
+  outline-offset: -1px;
+}
+
+/* Closing band: the one direct line to the founder. */
+
+.cs-close {
+  background: var(--surface-sunken);
+}
+
+.cs-close__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: var(--space-12) var(--gutter);
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" var(--width-display);
+  font-size: clamp(1.375rem, 3vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.cs-close__inner a {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.15em;
+}
+
+.cs-close__inner a:hover {
+  text-decoration-thickness: 4px;
+}
+
+/* Thanks and privacy */
+
+.cs-doc {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: var(--space-8) var(--gutter) var(--space-16);
+}
+
+.cs-doc > p {
+  max-width: 62ch;
+}
+
+.cs-doc__title {
+  max-width: 18ch;
+  margin-bottom: var(--space-4);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+}
+
+.cs-doc__lede {
+  font-size: var(--size-lg);
+  line-height: 1.45;
+}
+
+.cs-doc__back {
+  margin-top: var(--space-4);
+}
+
+.cs-doc__back a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--control);
+  padding: 0 var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: var(--accent-on);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color var(--fast) var(--ease-out);
+}
+
+.cs-doc__back a:hover {
+  background: color-mix(in oklab, var(--accent) 84%, var(--canvas));
+}
+
+.cs-notice {
+  gap: 0;
+}
+
+.cs-notice__section {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 62rem;
+  padding: var(--space-5) 0;
   border-top: 1px solid var(--border);
 }
 
-/* Privacy notice */
-
-.cs-notice__section {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  margin-top: var(--space-4);
+.cs-notice__section p {
+  max-width: 68ch;
+  overflow-wrap: anywhere;
 }
 
-.cs-notice__updated {
-  margin-top: var(--space-4);
+.cs-notice__heading {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" var(--width-display);
+  font-size: var(--size-lg);
+  font-weight: 800;
+  line-height: 1.25;
 }
 
-/* Footer: the page's one full-bleed element, a rank-bar black band. */
+.cs-doc > .cs-notice__updated {
+  max-width: 62rem;
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: var(--size-sm);
+}
+
+/* Footer: the wordmark and the links, as on the apex pages. */
 
 .cs-foot {
-  margin-top: var(--space-16);
-  padding: var(--space-12) var(--space-5);
-  border-top: 1px solid var(--band-edge);
-  background: var(--band);
-  color: var(--band-text);
-  --focus-inner: var(--band);
-  --focus-outer: var(--band-text);
-}
-
-.cs-foot ::selection {
-  background: var(--band-text);
-  color: var(--band);
-}
-
-.cs-foot a {
-  display: inline-block;
-  padding: 10px 0;
-  color: inherit;
-}
-
-.cs-foot a:hover {
-  color: inherit;
-  text-decoration-thickness: 2px;
-}
-
-.cs-foot__inner {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-2) var(--space-6);
-  max-width: 1200px;
+  width: 100%;
+  max-width: var(--max);
   margin: 0 auto;
+  padding: var(--space-6) var(--gutter);
+  border-top: 1px solid var(--border);
+  font-size: var(--size-sm);
 }
 
-.cs-foot__name {
+.cs--home .cs-foot {
+  border-top: 0;
+}
+
+.cs-foot__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--touch);
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" var(--width-display);
+  font-size: var(--size-md);
   font-weight: 800;
+}
+
+.cs-foot__mark {
+  width: auto;
+  height: 24px;
 }
 
 .cs-foot__links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 var(--space-6);
+  gap: 0 var(--space-4);
 }
 
-/* Narrowest phones: keep the longest headline word inside a 320 px screen. */
+.cs-foot__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch);
+  color: var(--text-muted);
+}
 
-@media (max-width: 359px) {
-  .cs-h1 {
-    font-size: 2.125rem;
+.cs-foot__links a:hover {
+  color: var(--text);
+}
+
+/* Motion: each open slot draws down from the top as it scrolls into view. Without support, or with reduced motion, the slots are simply there. */
+
+@keyframes cs-slot-draw {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .cs-slot {
+      animation: cs-slot-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
   }
 }
 
 @media (min-width: 600px) {
-  .cs-page {
-    max-width: 640px;
-    margin: 0;
-  }
-
-  .cs-head--home {
-    gap: 53px;
-  }
-
-  .cs-head--home .cs-head__name {
-    margin-bottom: 14px;
-  }
-
-  .cs-head--home .cs-mark {
-    height: 160px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .cs-page {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    column-gap: var(--space-6);
-    max-width: 1248px;
-    margin: 0 auto;
-    padding: var(--space-section) var(--space-6) 0;
-  }
-
-  .cs--home .cs-head {
-    grid-column: 1 / 6;
-    grid-row: 1;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-6);
-  }
-
-  .cs--home .cs-head__name {
-    margin: 0;
-    font-size: var(--size-2xl);
-  }
-
-  .cs-head--home .cs-mark {
-    height: 320px;
-  }
-
-  .cs--home .cs-main {
-    display: grid;
-    grid-column: 1 / -1;
-    grid-row: 1 / span 3;
-    grid-template-columns: subgrid;
-    grid-template-rows: subgrid;
-    padding-top: 0;
-  }
-
-  .cs-hero {
-    grid-column: 6 / -1;
-    grid-row: 1;
-    max-width: calc(600px + 40px);
-    padding-left: 40px;
-  }
-
-  .cs-h1 {
-    font-size: var(--size-display);
+  :root {
+    --gutter: var(--space-8);
   }
 
   .cs-form__row {
     flex-direction: row;
+    align-items: stretch;
   }
 
   .cs-form__row .cs-input {
@@ -510,35 +622,51 @@ a:hover {
 
   .cs-form__row .cs-button {
     flex: none;
-    min-height: var(--button-md);
   }
 
-  .cs-launch {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    margin-top: var(--space-section);
+  .cs-launch__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cs-hero {
+    grid-template-columns: minmax(0, 1.25fr) minmax(16rem, 0.75fr);
+    align-items: center;
+    gap: var(--space-16);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-16);
   }
 
-  .cs-launch__groups {
-    display: grid;
+  .cs-hero__mark {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cs-hero__mark img {
+    width: min(320px, 100%);
+  }
+
+  .cs-band__inner {
+    padding-block: var(--space-16);
+  }
+
+  .cs-launch__list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: start;
-    gap: var(--space-12);
   }
 
-  .cs-alt {
-    grid-column: 1 / -1;
-    grid-row: 3;
-    margin-top: var(--space-12);
+  .cs-close__inner {
+    padding-block: var(--space-16);
   }
 
-  .cs--inner .cs-head,
-  .cs--inner .cs-main {
-    grid-column: 6 / -1;
+  .cs-doc {
+    padding-top: var(--space-12);
   }
 
-  .cs-foot {
-    margin-top: var(--space-section);
+  .cs-notice__section {
+    grid-template-columns: 16rem minmax(0, 1fr);
+    column-gap: var(--space-12);
   }
 }
 
@@ -547,7 +675,12 @@ a:hover {
     outline-color: Highlight;
   }
 
-  .cs-button {
-    border-color: ButtonText;
+  .cs-button,
+  .cs-doc__back a {
+    border: 1px solid ButtonText;
+  }
+
+  .cs-slot {
+    outline-color: CanvasText;
   }
 }

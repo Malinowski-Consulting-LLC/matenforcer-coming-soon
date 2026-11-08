@@ -27,24 +27,22 @@
 <meta name="twitter:image" content="https://matenforcer.net/assets/og-image.png">
 <meta name="twitter:image:alt" content="The MatEnforcer logo, a hexagon with the letters M and E, beside the name MatEnforcer.">
 </head>
-<body class="cs--home">
-<div class="cs-page">
-  <header class="cs-head cs-head--home">
-    <picture>
-      <source media="(min-width: 1024px)" width="235" height="320" srcset="assets/logo-235x320.png 1x, assets/logo-470x640.png 2x, assets/logo-705x960.png 3x">
-      <source media="(min-width: 600px)" width="117" height="160" srcset="assets/logo-117x160.png 1x, assets/logo-234x320.png 2x, assets/logo-351x480.png 3x">
-      <img class="cs-mark" src="assets/logo-82x112.png" srcset="assets/logo-82x112.png 1x, assets/logo-164x224.png 2x, assets/logo-246x336.png 3x" width="82" height="112" alt="">
-    </picture>
-    <span class="cs-head__name">MatEnforcer</span>
-  </header>
+<body class="cs cs--home">
+<header class="cs-head">
+  <span class="cs-brand">
+    <img class="cs-brand__mark" src="assets/logo-47x64.png" srcset="assets/logo-47x64.png 47w, assets/logo-94x128.png 94w, assets/logo-141x192.png 141w" sizes="23px" width="47" height="64" alt="">
+    <span>MatEnforcer</span>
+  </span>
+</header>
 
-  <main class="cs-main">
-    <div class="cs-hero">
-      <h1 class="cs-h1">Software for Brazilian Jiu-Jitsu academies, built by a practitioner.</h1>
+<main class="cs-main">
+  <section class="cs-hero" aria-labelledby="hero-title">
+    <div class="cs-hero__copy">
+      <h1 class="cs-display" id="hero-title">Software for Brazilian <span class="cs-nowrap">Jiu-Jitsu</span> academies, built by a practitioner.</h1>
       <p class="cs-lede">MatEnforcer runs a BJJ academy the way the gym already works: belts and stripes, mat hours, Gi and No-Gi, open mats and drop-ins. It's launching soon.</p>
 
       <section class="cs-join" aria-labelledby="join-heading">
-        <h2 class="cs-h2" id="join-heading">Join the list</h2>
+        <h2 class="cs-join__title" id="join-heading">Join the list</h2>
         <form class="cs-form" method="post" action="https://app.kit.com/forms/10161980/subscriptions">
           <label class="cs-label" for="email">Email</label>
           <div class="cs-form__row">
@@ -55,62 +53,65 @@
         </form>
       </section>
     </div>
+    <div class="cs-hero__mark">
+      <img src="assets/logo-47x64.png" srcset="assets/logo-47x64.png 47w, assets/logo-235x320.png 235w, assets/logo-351x480.png 351w, assets/logo-470x640.png 470w, assets/logo-705x960.png 705w" sizes="(min-width: 1024px) 320px, 23px" width="235" height="320" alt="">
+    </div>
+  </section>
 
-    <section class="cs-launch" aria-labelledby="launch-heading">
-      <div class="cs-launch__head">
+  <section class="cs-band" aria-labelledby="launch-heading">
+    <div class="cs-band__inner">
+      <div class="cs-band__head">
         <h2 class="cs-h2" id="launch-heading">At launch</h2>
-        <p class="cs-muted">Everything below is planned for the first release. None of it is live yet.</p>
+        <p>Everything below is planned for the first release. None of it is live yet.</p>
       </div>
-      <div class="cs-launch__groups">
-        <div class="cs-launch__group">
-          <h3 class="cs-h3" id="launch-mat">On the mat</h3>
-          <ul aria-labelledby="launch-mat">
-            <li class="cs-launch__item"><strong>Check-in in one step.</strong> At the counter kiosk, by QR code or by name, with the class schedule, class booking with waitlists, and mat hours counted per Gi and No-Gi track.</li>
-            <li class="cs-launch__item"><strong>Promotion rules.</strong> Stripe and belt eligibility over mat hours, attendance, time in grade and syllabus check-offs, on separate Gi and No-Gi ladders, with optional belt testing.</li>
-            <li class="cs-launch__item"><strong>Curriculum and recorded classes.</strong> Technique libraries and recorded mat sessions that students watch in the member app.</li>
-            <li class="cs-launch__item"><strong>Open mats, seminars and privates.</strong> Booked and paid for in the app, with tickets and fees.</li>
-          </ul>
-        </div>
-        <div class="cs-launch__group">
-          <h3 class="cs-h3" id="launch-academy">Running the academy</h3>
-          <ul aria-labelledby="launch-academy">
-            <li class="cs-launch__item"><strong>A roster with belts and stripes.</strong> Every member with their rank, and roles for owner, admin, instructor, front desk and student, invited by email.</li>
-            <li class="cs-launch__item"><strong>Online sign-up and waivers.</strong> New members sign on their phone or at the kiosk, and a parent or guardian signs for a child.</li>
-            <li class="cs-launch__item"><strong>Dues and drop-ins.</strong> Through your own payment processor, with freezes, pauses, family billing and renewal reminders.</li>
-            <li class="cs-launch__item"><strong>Messages that bring students back.</strong> An automatic email or text when someone has been away too long, plus broadcasts to the members you choose.</li>
-            <li class="cs-launch__item"><strong>Prospects to members.</strong> Follow trial sign-ups and walk-ins from first contact to joining.</li>
-            <li class="cs-launch__item"><strong>Reports.</strong> Revenue and attendance over time, each downloadable as CSV.</li>
-            <li class="cs-launch__item"><strong>More than one location.</strong> One academy with several locations, each with its own schedule, kiosk and staff.</li>
-            <li class="cs-launch__item"><strong>Move in, and move out.</strong> Import members, ranks and attendance from your current software's CSV exports, and export all your data any time.</li>
-            <li class="cs-launch__item"><strong>Support inside the app.</strong> Ask for help from the portal and read the replies in the same thread.</li>
-          </ul>
-        </div>
-        <div class="cs-launch__group">
-          <h3 class="cs-h3" id="launch-online">Online</h3>
-          <ul aria-labelledby="launch-online">
-            <li class="cs-launch__item"><strong>A free member app.</strong> It installs on a phone, with one passkey sign-in for every academy a member trains at.</li>
-            <li class="cs-launch__item"><strong>Your academy's website.</strong> Schedule, staff profiles with lineage and your YouTube videos, on your own domain or a matenforcer.net address.</li>
-            <li class="cs-launch__item"><strong>A gear shop.</strong> Sell your academy's gear online, in sizes, with stock tracked.</li>
-            <li class="cs-launch__item"><strong>Affiliation teams.</strong> Show your team on your site, and carry a member's rank to another gym on the same team.</li>
-            <li class="cs-launch__item"><strong>Build your own site.</strong> A content API and webhooks for academies with their own developers.</li>
-            <li class="cs-launch__item"><strong>Connect your own tools.</strong> Webhooks when a member joins, checks in, is promoted or misses a payment.</li>
-          </ul>
-        </div>
+      <div class="cs-launch__group">
+        <h3 class="cs-launch__title" id="launch-mat">On the mat</h3>
+        <ul class="cs-launch__list" aria-labelledby="launch-mat">
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>Check-in in one step.</strong> At the counter kiosk, by QR code or by name, with the class schedule, class booking with waitlists, and mat hours counted per Gi and No-Gi track.</p></li>
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>Promotion rules.</strong> Stripe and belt eligibility over mat hours, attendance, time in grade and syllabus check-offs, on separate Gi and No-Gi ladders, with optional belt testing.</p></li>
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>Curriculum and recorded classes.</strong> Technique libraries and recorded mat sessions that students watch in the member app.</p></li>
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>Open mats, seminars and privates.</strong> Booked and paid for in the app, with tickets and fees.</p></li>
+        </ul>
       </div>
-    </section>
+      <div class="cs-launch__group">
+        <h3 class="cs-launch__title" id="launch-academy">Running the academy</h3>
+        <ul class="cs-launch__list" aria-labelledby="launch-academy">
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>A roster with belts and stripes.</strong> Every member with their rank, and roles for owner, admin, instructor, front desk and student, invited by email.</p></li>
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>Online sign-up and waivers.</strong> New members sign on their phone or at the kiosk, and a parent or guardian signs for a child.</p></li>
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>Dues and drop-ins.</strong> Through your own payment processor, with freezes, pauses, family billing and renewal reminders.</p></li>
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>Messages that bring students back.</strong> An automatic email or text when someone has been away too long, plus broadcasts to the members you choose.</p></li>
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>Prospects to members.</strong> Follow trial sign-ups and walk-ins from first contact to joining.</p></li>
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>Reports.</strong> Revenue and attendance over time, each downloadable as CSV.</p></li>
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>More than one location.</strong> One academy with several locations, each with its own schedule, kiosk and staff.</p></li>
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>Move in, and move out.</strong> Import members, ranks and attendance from your current software's CSV exports, and export all your data any time.</p></li>
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>Support inside the app.</strong> Ask for help from the portal and read the replies in the same thread.</p></li>
+        </ul>
+      </div>
+      <div class="cs-launch__group">
+        <h3 class="cs-launch__title" id="launch-online">Online</h3>
+        <ul class="cs-launch__list" aria-labelledby="launch-online">
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>A free member app.</strong> It installs on a phone, with one passkey sign-in for every academy a member trains at.</p></li>
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>Your academy's website.</strong> Schedule, staff profiles with lineage and your YouTube videos, on your own domain or a matenforcer.net address.</p></li>
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>A gear shop.</strong> Sell your academy's gear online, in sizes, with stock tracked.</p></li>
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>Affiliation teams.</strong> Show your team on your site, and carry a member's rank to another gym on the same team.</p></li>
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>Build your own site.</strong> A content API and webhooks for academies with their own developers.</p></li>
+          <li class="cs-launch__item"><span class="cs-slot" aria-hidden="true"></span><p><strong>Connect your own tools.</strong> Webhooks when a member joins, checks in, is promoted or misses a payment.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <p class="cs-alt">Run an academy and want to talk now? Email <a href="mailto:support@matenforcer.net">support@matenforcer.net</a>.</p>
-  </main>
-</div>
+  <div class="cs-close">
+    <p class="cs-close__inner">Run an academy and want to talk now? Email <a href="mailto:support@matenforcer.net">support@matenforcer.net</a>.</p>
+  </div>
+</main>
 
 <footer class="cs-foot">
-  <div class="cs-foot__inner">
-    <p class="cs-foot__name">MatEnforcer</p>
-    <ul class="cs-foot__links">
-      <li><a href="privacy.html">Privacy notice</a></li>
-      <li><a href="mailto:support@matenforcer.net">support@matenforcer.net</a></li>
-    </ul>
-  </div>
+  <p class="cs-foot__brand"><img class="cs-foot__mark" src="assets/logo-47x64.png" srcset="assets/logo-47x64.png 47w, assets/logo-94x128.png 94w" sizes="18px" width="47" height="64" alt=""><span>MatEnforcer</span></p>
+  <ul class="cs-foot__links">
+    <li><a href="privacy.html">Privacy notice</a></li>
+    <li><a href="mailto:support@matenforcer.net">support@matenforcer.net</a></li>
+  </ul>
 </footer>
 </body>
 </html>
