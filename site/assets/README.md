@@ -11,10 +11,9 @@ The pages reference these final names:
 | `favicon.ico` (16, 32 and 48) | every page | browser tab |
 | `apple-touch-icon.png` | every page | iOS home screen |
 | `og-image.png` (1200 x 630) | `index.html` share tags | link previews |
-| `logo-82x112.png`, `logo-164x224.png`, `logo-246x336.png` | `index.html`, under 600 px | 82 x 112 at 1x, 2x, 3x |
-| `logo-117x160.png`, `logo-234x320.png`, `logo-351x480.png` | `index.html`, 600 to 1023 px | 117 x 160 at 1x, 2x, 3x |
-| `logo-235x320.png`, `logo-470x640.png`, `logo-705x960.png` | `index.html`, 1024 px and up | 235 x 320 at 1x, 2x, 3x |
-| `logo-47x64.png`, `logo-94x128.png`, `logo-141x192.png` | `thanks.html`, `privacy.html` | 47 x 64 at 1x, 2x, 3x |
+| `logo-47x64.png`, `logo-94x128.png`, `logo-141x192.png` | every page's header (32 px tall) and footer (24 px tall) | by width, through `srcset` |
+| `logo-235x320.png`, `logo-351x480.png`, `logo-470x640.png`, `logo-705x960.png` | `index.html` hero, 1024 px and up | 235 x 320 up to 3x, through `srcset` |
+| `logo-82x112.png`, `logo-164x224.png`, `logo-246x336.png`, `logo-117x160.png`, `logo-234x320.png` | not referenced since the page redesign; kept as copied | none |
 
 The app's asset build produces these twelve sizes the same way as its own: scaled from the master,
 with metadata removed.
