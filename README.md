@@ -27,6 +27,9 @@ site/                 the only directory published
   index.html          the page
   thanks.html         where Kit sends the visitor after the post and after confirming
   privacy.html        the privacy notice for the launch list
+  robots.txt          allows every crawler and names the sitemap
+  sitemap.txt         the two indexable pages, one URL per line
+  llms.txt            a plain summary for AI agents; keep its feature list in step with index.html
   styles.css          hand-written; values copied from the app's tokens.css
   assets/             logo, favicon, touch icon and share image (see site/assets/README.md)
   fonts/              Archivo variable woff2 and its licence, OFL.txt

@@ -1,0 +1,50 @@
+# MatEnforcer
+
+> MatEnforcer is management software for Brazilian Jiu-Jitsu (BJJ) academies, built by a practitioner. It runs an academy the way a BJJ gym already works: belts and stripes, mat hours, separate Gi and No-Gi ranks, open mats and drop-ins. It has not launched yet. This site is a coming-soon page with a launch mailing list.
+
+Status: in development, not yet available. None of the features below are live. Everything listed is planned for the first release.
+
+Who it is for: owners, instructors and front-desk staff of BJJ academies, including academies with several locations and academies in affiliation teams. Members use a free app.
+
+## Planned features
+
+### On the mat
+
+- Check-in at a counter kiosk, by QR code or by name, with a class schedule, class booking with waitlists and booking windows, and mat hours counted separately for Gi and No-Gi.
+- Bulk check-in: mark a whole class present at once.
+- A coach's mat view: a round timer and the members in class, with rank and progress to promotion.
+- Promotion rules: the academy chooses how much attendance counts. Stripe and belt eligibility can weigh mat hours, attendance, time in grade, syllabus check-offs and instructor assessments, on separate Gi and No-Gi ladders. Eligibility alerts the instructor and never promotes on its own. Belt testing is optional.
+- Achievements: badges for attendance streaks and mat-hour milestones, and optional leaderboards.
+- Curriculum: technique libraries and recorded classes in the member app.
+- Open mats, seminars and private lessons, booked and paid in the app.
+
+### Running the academy
+
+- A daily needs-attention list of members and prospects to act on, each with a plain reason.
+- A member hub for everyday tasks on one profile, and bulk actions on a filtered group of members.
+- A roster with belts and stripes, and roles for owner, admin, instructor, front desk and student.
+- Online sign-up and digital waivers, including a guardian signing for a child.
+- Dues and drop-ins through the academy's own payment processor: freezes, pauses, family billing, class packs, trials, promo codes and renewal reminders.
+- Failed-payment recovery: update links, scheduled retries and staff alerts.
+- Instructor pay reports, expense tracking, and reports on revenue, attendance and churn, exportable as CSV.
+- Multiple locations, each with its own schedule, kiosk and staff.
+- Import from an academy's current software by CSV export, with a guided checklist, and export of all data at any time.
+
+### Messages and growth
+
+- Automatic emails and texts for inactivity, milestones and failed payments, plus broadcasts.
+- Owner-set automations: a trigger (days away, trial attended, waiver expiring) and an action (send a message, tell staff, create a task).
+- Class reminders and cancellation notices, a two-way text inbox, and email sent from the academy's own domain.
+- A leads pipeline from first contact to member, and member referrals.
+
+### Online
+
+- A free installable member app with passkey sign-in and a training journal.
+- A website for each academy, on its own domain, with a live schedule, staff profiles and lineage.
+- A gear shop, affiliation team support, a content API and webhooks.
+
+## Links
+
+- [Coming-soon page and launch list](https://matenforcer.net/)
+- [Privacy notice for the launch list](https://matenforcer.net/privacy.html)
+- Contact: support@matenforcer.net
