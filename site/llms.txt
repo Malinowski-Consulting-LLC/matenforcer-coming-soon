@@ -15,7 +15,18 @@ Who it is for: owners, instructors and front-desk staff of BJJ academies, includ
 - Each extra location is $50 per month flat on top of the home location tier. One location with 1 to 50 members plus one extra location is $119 per month total. One location with 101 members and up plus one extra location is $199 per month total.
 - Franchise support is a $100 per month flat add-on.
 
-## Planned features
+## What matters most
+
+Six things owners ask for first. Everything below is planned for the first release and none of it is live yet.
+
+- Belts and stripes, tied to attendance. See who is ready for the next belt or stripe, and why. Mat hours, time in grade and syllabus work all count.
+- Failed payments recovered. A backup card and a member wallet stop most failures. The rest get a card update link and retries on your schedule.
+- Quiet members flagged before they quit. A drop against a member's own usual attendance triggers a message, not just days away.
+- One bill for the whole family. Kids, parents and siblings on one account, one card, one payment.
+- Check-in, schedule and booking in one place. Kiosk, QR code or name at the door, with class booking, waitlists and mat hours counted per Gi and No-Gi track.
+- Reports and bulk actions that save an evening. Revenue, attendance and churn over time, and message, freeze or tag a whole filtered group at once.
+
+## Everything else at launch
 
 ### On the mat
 
