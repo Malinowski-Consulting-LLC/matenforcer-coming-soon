@@ -6,42 +6,55 @@ Status: in development, not yet available. None of the features below are live. 
 
 Who it is for: owners, instructors and front-desk staff of BJJ academies, including academies with several locations and academies in affiliation teams. Members use a free app.
 
+## Pricing
+
+- $150 per month flat. Same price for 30 members or 300 members.
+- 90-day free trial, no card required.
+- MatEnforcer takes no cut of member payments. Academies bill members through their own processor, or Stripe set up through the Academy account.
+- Text AI is included. The voice front desk is a $10 per month add-on, or bring your own AI at no extra charge.
+- The first five founding academies pay $50 per month for the first year after the trial, then $150 flat.
+
 ## Planned features
 
 ### On the mat
 
-- Check-in at a counter kiosk, by QR code or by name, with a class schedule, class booking with waitlists and booking windows, and mat hours counted separately for Gi and No-Gi.
+- Check-in at a counter kiosk, by QR code or by name, with a class schedule, class booking with waitlists and booking windows, and mat hours counted separately for Gi and No-Gi. Members can also check in by GPS from the member app.
 - Bulk check-in: mark a whole class present at once.
 - A coach's mat view: a round timer and the members in class, with rank and progress to promotion.
-- Promotion rules: the academy chooses how much attendance counts. Stripe and belt eligibility can weigh mat hours, attendance, time in grade, syllabus check-offs and instructor assessments, on separate Gi and No-Gi ladders. Eligibility alerts the instructor and never promotes on its own. Belt testing is optional.
+- Promotion rules: the academy chooses how much attendance counts. Stripe and belt eligibility can weigh mat hours, attendance, time in grade, syllabus check-offs and instructor assessments, on separate Gi and No-Gi ladders. Eligibility alerts the instructor and never promotes on its own. Belt testing is optional. Members see their own progress toward the next belt or stripe as a percent.
 - Achievements: badges for attendance streaks and mat-hour milestones, and optional leaderboards.
 - Curriculum: technique libraries and recorded classes in the member app.
 - Open mats, seminars and private lessons, booked and paid in the app.
+- In-house tournaments: brackets, mat schedules and scoring, with results written back to each member's record.
 
 ### Running the academy
 
 - A daily needs-attention list of members and prospects to act on, each with a plain reason.
 - A member hub for everyday tasks on one profile, and bulk actions on a filtered group of members.
-- A roster with belts and stripes, and roles for owner, admin, instructor, front desk and student.
+- A roster with belts and stripes, federation membership numbers and expiry dates, and roles for owner, admin, instructor, front desk and student.
 - Online sign-up and digital waivers, including a guardian signing for a child.
 - Dues and drop-ins through the academy's own payment processor: freezes, pauses, family billing, class packs, trials, promo codes and renewal reminders.
-- Failed-payment recovery: update links, scheduled retries and staff alerts.
+- Failed-payment recovery: a backup payment method on file and a member wallet for account credit, plus update links, scheduled retries and staff alerts.
+- Door access tied to membership status: doors open for members in good standing and stay shut when a payment fails or a membership is frozen or cancelled.
 - Instructor pay reports, expense tracking, and reports on revenue, attendance and churn, exportable as CSV.
 - Multiple locations, each with its own schedule, kiosk and staff.
 - Import from an academy's current software by CSV export, with a guided checklist, and export of all data at any time.
 
 ### Messages and growth
 
-- Automatic emails and texts for inactivity, milestones and failed payments, plus broadcasts.
+- Automatic emails and texts for inactivity, milestones and failed payments, plus broadcasts. Retention triggers are pattern-based: a drop against the member's own usual attendance, not just a fixed number of days away.
 - Owner-set automations: a trigger (days away, trial attended, waiver expiring) and an action (send a message, tell staff, create a task).
-- Class reminders and cancellation notices, a two-way text inbox, and email sent from the academy's own domain.
+- Class reminders and cancellation notices, a two-way text inbox, and email sent from the academy's own domain. Members add a booked class to their calendar, get a nudge when a trial is about to expire, and get asked for a review after class.
+- An AI front desk: answers texts, calls and social messages, books trials into the schedule and hands off to staff when it should. Text is included; the voice phone line is a $10 per month add-on, or connect your own AI at no extra charge.
+- Social publishing: publish and schedule posts to Instagram, Facebook, TikTok and X, see how they perform, and answer DMs from WhatsApp, Messenger and Instagram in one inbox. A DM from a stranger creates a prospect in the pipeline.
 - A leads pipeline from first contact to member, and member referrals.
 
 ### Online
 
-- A free installable member app with passkey sign-in and a training journal.
-- A website for each academy, on its own domain, with a live schedule, staff profiles and lineage.
+- A free installable member app, customized for each academy, with passkey sign-in and a training journal.
+- A website for each academy, on its own domain, with a live schedule, staff profiles and lineage, and a blog the academy can turn on or off.
 - A gear shop, affiliation team support, a content API and webhooks.
+- Five languages at launch: English, Spanish, Portuguese, French and German, with Japanese to follow.
 
 ## Links
 

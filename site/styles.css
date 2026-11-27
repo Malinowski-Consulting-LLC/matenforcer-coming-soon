@@ -448,6 +448,32 @@ a:hover {
   text-decoration-thickness: 4px;
 }
 
+/* Pricing: the flat price and the terms, on the canvas. */
+
+.cs-price {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: var(--space-12) var(--gutter) var(--space-16);
+}
+
+.cs-price__amount {
+  margin-top: var(--space-4);
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" var(--width-headline);
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.015em;
+}
+
+.cs-price__terms {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 40rem;
+  margin-top: var(--space-5);
+  color: var(--text-muted);
+}
+
 /* Thanks and privacy */
 
 .cs-doc {
