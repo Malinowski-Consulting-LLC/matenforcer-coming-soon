@@ -2,7 +2,7 @@
 
 > MatEnforcer is management software for Brazilian Jiu-Jitsu (BJJ) academies, built by a practitioner. It runs an academy the way a BJJ gym already works: belts and stripes, mat hours, separate Gi and No-Gi ranks, open mats and drop-ins. It has not launched yet. This site is a coming-soon page with a launch mailing list.
 
-Status: in development, not yet available. None of the features below are live. Everything listed is planned for the first release.
+Status: in development, not yet available. None of the features below are live. Everything listed under At launch is planned for the first release. The Coming after launch section lists work planned for a later release.
 
 Who it is for: owners, instructors and front-desk staff of BJJ academies, including academies with several locations and academies in affiliation teams. Members use a free app.
 
@@ -68,6 +68,17 @@ Six things owners ask for first. Everything below is planned for the first relea
 - A website for each academy, on its own domain, with a live schedule, staff profiles and lineage, and a blog the academy can turn on or off.
 - A gear shop, affiliation team support, a content API and webhooks.
 - Five languages at launch: English, Spanish, Portuguese, French and German, with Japanese to follow.
+
+## Coming after launch
+
+Planned for a later release. None of this is in the first release, and none of it is live yet.
+
+- At-home homework drills: drills sent to a student's phone, scored on the device by the camera, with nothing recorded or uploaded.
+- In-app academy chat: group chats per program, direct messages with instructors, polls and announcements in the member app.
+- Student loyalty points: points for attendance and milestones, with rewards the academy defines.
+- Japanese: Japanese joins the five launch languages.
+- AI-assisted lesson planning: a draft class plan from the curriculum and the students attending, for the instructor to edit.
+- Smoothcomp integration: tournament registrations and results from Smoothcomp, written back to each member's record.
 
 ## Links
 
