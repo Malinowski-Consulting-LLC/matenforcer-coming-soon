@@ -474,6 +474,99 @@ a:hover {
   color: var(--text-muted);
 }
 
+/* Pricing chips: plain bordered tags, same treatment as the buttons and inputs. */
+
+.cs-price__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+.cs-price__chips li {
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  font-size: var(--size-sm);
+  font-weight: 600;
+}
+
+/* Location ladder: three steps, each marked with the same dashed tape as the launch slots. */
+
+.cs-price__ladder {
+  margin-top: var(--space-8);
+  padding: 0;
+  border-top: 1px solid var(--border);
+  list-style: none;
+}
+
+.cs-price__ladder li {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) 0 var(--space-3) calc(var(--tape) + var(--space-4));
+  border-bottom: 1px solid var(--border);
+  font-weight: 700;
+}
+
+.cs-price__ladder li::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--tape);
+  outline: 1px dashed var(--band-slot);
+  outline-offset: -1px;
+}
+
+.cs-price__ladder strong {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" var(--width-display);
+  font-size: var(--size-xl);
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.cs-price__ladder strong span {
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  font-weight: 600;
+}
+
+.cs-price__totals {
+  margin-top: var(--space-3);
+  color: var(--text-muted);
+  font-size: var(--size-sm);
+}
+
+/* Founding 5: a plain bordered box, the strongest border on the page, no fill. */
+
+.cs-price__founding {
+  margin-top: var(--space-8);
+  padding: var(--space-5);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.cs-price__founding-title {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" var(--width-display);
+  font-size: var(--size-sm);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cs-price__founding p + p {
+  margin-top: var(--space-2);
+  font-size: var(--size-lg);
+  line-height: 1.45;
+}
+
 /* Thanks and privacy */
 
 .cs-doc {
@@ -707,6 +800,10 @@ a:hover {
   }
 
   .cs-slot {
+    outline-color: CanvasText;
+  }
+
+  .cs-price__ladder li::before {
     outline-color: CanvasText;
   }
 }
