@@ -8,11 +8,11 @@ Who it is for: owners, instructors and front-desk staff of BJJ academies, includ
 
 ## Pricing
 
-- $150 per month flat. Same price for 30 members or 300 members.
+- Priced by active members per academy: 1 to 50 members is $69 per month, 51 to 100 members is $99 per month, and 101 members and up is $149 per month flat. The full feature set is included at every tier.
 - 90-day free trial, no card required.
 - MatEnforcer takes no cut of member payments. Academies bill members through their own processor, or Stripe set up through the Academy account.
 - Text AI is included. The voice front desk is a $10 per month add-on, or bring your own AI at no extra charge.
-- More than one location: the first location is $150 per month flat, the second location is $100 per month, and the third and each additional location after that is $50 per month.
+- Each extra location is $50 per month flat on top of the home location tier. One location with 1 to 50 members plus one extra location is $119 per month total. One location with 101 members and up plus one extra location is $199 per month total.
 - Franchise support is a $100 per month flat add-on.
 
 ## Planned features
