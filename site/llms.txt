@@ -13,7 +13,7 @@ Who it is for: owners, instructors and front-desk staff of BJJ academies, includ
 - MatEnforcer takes no cut of member payments. Academies bill members through their own processor, or Stripe set up through the Academy account.
 - Text AI is included. The voice front desk is a $10 per month add-on, or bring your own AI at no extra charge.
 - The first five founding academies pay $50 per month for the first year after the trial, then $150 flat.
-- More than one location: the first location is $150 per month flat, each additional location is $100 per month.
+- More than one location: the first location is $150 per month flat, the second location is $100 per month, and the third and each additional location after that is $50 per month.
 
 ## Planned features
 
