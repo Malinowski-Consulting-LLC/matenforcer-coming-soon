@@ -747,6 +747,15 @@ a:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-6);
   }
+
+  .cs-key__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cs-rest__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-2) var(--space-6);
+  }
 }
 
 @media (min-width: 1024px) {
@@ -772,6 +781,14 @@ a:hover {
   }
 
   .cs-launch__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cs-key__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cs-rest__list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
@@ -806,4 +823,98 @@ a:hover {
   .cs-price__ladder li::before {
     outline-color: CanvasText;
   }
+}
+
+/* Key features: six large cards, plain 1px borders, same tape slot as the launch items. */
+
+.cs-key {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.cs-key__title {
+  font-size: var(--size-xl);
+  font-weight: 800;
+}
+
+.cs-key__list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.cs-key__item {
+  position: relative;
+  padding: var(--space-5);
+  padding-left: calc(var(--tape) + var(--space-6));
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--band-ink);
+}
+
+.cs-key__item p {
+  overflow-wrap: anywhere;
+}
+
+.cs-key__num {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--band-muted);
+  font-size: var(--size-sm);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.cs-key__item strong {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--band-ink);
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" var(--width-display);
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+  font-weight: 900;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+/* Everything else: one compact block, smaller type, no slots, grouped and scannable. */
+
+.cs-rest {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--band-edge);
+}
+
+.cs-rest__title {
+  font-size: var(--size-lg);
+  font-weight: 800;
+}
+
+.cs-rest__intro {
+  margin-top: calc(var(--space-3) * -1);
+  color: var(--band-muted);
+}
+
+.cs-rest__list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-2);
+}
+
+.cs-rest__item {
+  color: var(--band-muted);
+  font-size: var(--size-sm);
+  line-height: 1.45;
+}
+
+.cs-rest__item strong {
+  color: var(--band-ink);
+  font-weight: 700;
 }
